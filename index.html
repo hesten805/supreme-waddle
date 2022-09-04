@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fancy Music Player</title>
+	<meta charset="utf-8">
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+</head>
+<style>
+
+	body {
+		user-drag: none; 
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		margin: 0;
+	}
+
+	#container {
+		width: 100vw;
+		height: 100vh;
+		background: rgb(2,0,36);
+		background: linear-gradient(170deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+		animation-name: bg-anim;
+		animation-duration: 4s;
+		animation-iteration-count: infinite;
+		transition: background 4s;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#slider {
+		appearance: none;
+		-webkit-appearance: none;
+		opacity: 0.5;
+		outline: none;
+		transition: opacity 0.5s;
+		cursor: pointer;
+		width: 50%;
+		height: 5px;
+		margin: 0px 20px;
+		border-radius: 10px;
+	}
+
+	#slider:hover {
+		opacity: 1;
+	}
+
+	#slider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: none;
+		color: #7f8c8d;
+		appearance: none;
+		width: 18px;
+		height: 18px;
+		border-radius: 10px;
+		margin: -14px;
+	}
+
+	#slider::-moz-range-thumb {
+		border: none;
+		color: #7f8c8d;
+		appearance: none;
+		width: 18px;
+		height: 18px;
+		border-radius: 10px;
+	}
+
+	#slider::ms-thumb {
+		border: none;
+		color: #7f8c8d;
+		appearance: none;
+		width: 18px;
+		height: 18px;
+		border-radius: 10px;
+	}
+
+	.img-button {
+		width: 25px;
+		margin-right: 10px;
+		margin-left: 10px;
+		opacity: 0.5;
+		transition: opacity 0.5s;
+		cursor: pointer;
+	}
+
+	.img-button:hover { opacity: 1; }
+
+	.timeMarker {
+		color: #fff;
+		font-family: Courier;
+		font-size: 1.1em;
+	}
+
+	.player-section {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 0px;
+	}
+
+	#track-lbl {
+		color: #fff;
+		font-family: Oswald, sans-serif;
+		font-size: 4em;
+		margin-bottom: 50px;
+		opacity: 0.75;
+	}
+
+	#player {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	#timer-section {
+		margin-bottom: 100px;
+	}
+
+</style>
+<body>
+	<div id="container">
+		<div id="player">
+			<div class="player-section" id="track-lbl"></div>
+			<div class="player-section" id="timer-section">
+				<img src="img/previous.png" id="previousMusicButton" class="img-button">
+				<img src="img/play.png" id="toggleMusicButton" class="img-button">
+				<img src="img/next.png" id="nextMusicButton" class="img-button">
+				<span id="currentTime" class="timeMarker">00:00</span>
+				<input type="range" id="slider" step="0.1">
+				<span id="musicDuration" class="timeMarker">10:01</span>
+				<img src="img/replay_all.png" id="replayButton" class="img-button">
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="audiotoolkit.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</html>
